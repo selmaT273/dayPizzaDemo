@@ -10,6 +10,7 @@ var pizzaIndex2 = 1;
 var totalClicks = 0;
 var allPizzas = [];
 
+var imageElements = document.getElementsByTagName('img');
 
 //add a constructor function for our pizzas
 function Pizza(name, imageUrl){
@@ -24,7 +25,7 @@ function Pizza(name, imageUrl){
 new Pizza('Brick Oven Pizza', 'img/brickOvenPizza.jpeg');
 new Pizza('Calzone', 'img/calzonePizza.jpeg');
 new Pizza('Chicago Deep Dish', 'img/chicagoPizza.jpeg');
-new Pizza('Chicago Pizza and Oven Grinder', 'img/cpoGrinderPizza.jpeg');
+new Pizza('Chicago Pizza and Oven Grinder', 'img/cpoGinderPizza.jpeg');
 
 
 function imageWasClicked(event){
@@ -50,6 +51,8 @@ function imageWasClicked(event){
   }
 
   //pick a random pic to display
+  pizzaIndex1 = nextPizzaIndex1;
+  pizzaIndex2 = nextPizzaIndex2;
 
   imageElements[0].src = allPizzas[pizzaIndex1].imageUrl;
   imageElements[1].src = allPizzas[pizzaIndex2].imageUrl;
@@ -58,19 +61,19 @@ function imageWasClicked(event){
 
 
   //set up a ref to pizzaIndex1
-  pizzaIndex1 = nextPizzaIndex1;
-  pizzaIndex2 = nextPizzaIndex2;
 
   //display the pizzas
 
   if(totalClicks >= 5){
     var footerElement = document.getElementsByTagName('footer')[0];
     footerElement.textContent = `You picked pizza1 ${pizzaIndex1} times and pizza2 ${pizzaIndex2} times.`;
+    if(footerElement.firstElementChild){
+      footerElement.firstElementChild;
+    }
   }
 
 }
 
-var imageElements = document.getElementsByTagName('img');
 
 
 for(var i = 0; i < imageElements.length; i++){
