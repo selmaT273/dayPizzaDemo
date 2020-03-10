@@ -66,7 +66,7 @@ function imageWasClicked(event){
 
   if(totalClicks >= 5){
     var footerElement = document.getElementsByTagName('footer')[0];
-    footerElement.textContent = `You picked pizza1 ${pizzaIndex1} times and pizza2 ${pizzaIndex2} times.`;
+    footerElement.textContent = 'You picked pizza a lot of times.';
     if(footerElement.firstElementChild){
       footerElement.firstElementChild.remove();
     }
