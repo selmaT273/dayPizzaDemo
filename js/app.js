@@ -65,6 +65,14 @@ function imageWasClicked(event){
     if(footerElement.firstElementChild){
       footerElement.firstElementChild.remove();
     }
+    var asideUl = document.getElementById('vote-results');
+    for(var j = 0; j < allPizzas.length; j++){
+      var voteResultListItem = document.createElement('li');
+      voteResultListItem.textContent = allPizzas[j].name + ' was shown ' + allPizzas[j].timesShown + ' times, and received ' + allPizzas[j].timesClicked + ' votes, which represents ' + ((allPizzas[j].timesClicked/totalClicks)* 100) + '% of total votes.';
+      asideUl.appendChild(voteResultListItem);
+
+    }
+
     for (var k = 0; k < imageElements.length; k++)
       imageElements[k].removeEventListener('click', imageWasClicked);
   }
