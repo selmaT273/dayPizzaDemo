@@ -26,10 +26,10 @@ function Pizza(name, imageUrl, timesClicked){
   allPizzas.push(this);
 }
 
-//add a prototype
-Pizza.prototype.toString = function(){
-  return `${this.name} pizza is from our ${this.name} for the specified array index, clicked ${this.timesClicked} times.`;
-};
+// //add a prototype
+// Pizza.prototype.toString = function(){
+//   return `${this.name} pizza is from our ${this.name} for the specified array index, clicked ${this.timesClicked} times.`;
+// };
 
 
 
