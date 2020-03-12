@@ -14,17 +14,17 @@ var allPizzas = [];
 var imageElements = document.getElementsByTagName('img');
 
 //add a constructor function for our pizzas
-function Pizza(name, imageUrl, timesClicked){
-  this.name = name;
-  this.imageUrl = imageUrl;
-  if(timesClicked){
-    this.timesClicked = timesClicked;
-  } else {
-    this.timesClicked = 0;
-  }
-  this.timesShown = 0;
-  allPizzas.push(this);
-}
+// function Pizza(name, imageUrl, timesClicked){
+//   this.name = name;
+//   this.imageUrl = imageUrl;
+//   if(timesClicked){
+//     this.timesClicked = timesClicked;
+//   } else {
+//     this.timesClicked = 0;
+//   }
+//   this.timesShown = 0;
+//   allPizzas.push(this);
+// }
 
 // //add a prototype
 // Pizza.prototype.toString = function(){
@@ -33,35 +33,36 @@ function Pizza(name, imageUrl, timesClicked){
 
 
 
-function getPizzaArray(nameOfThePropertyIWant){
-  var answer = [];
-  for(var i = 0; i < allPizzas.length; i++){
-    answer[i] = allPizzas[i][nameOfThePropertyIWant];
-  }
-  console.log(answer);
-  return answer;
-}
+// function getPizzaArray(nameOfThePropertyIWant){
+//   var answer = [];
+//   for(var i = 0; i < allPizzas.length; i++){
+//     answer[i] = allPizzas[i][nameOfThePropertyIWant];
+//   }
+//   console.log(answer);
+//   return answer;
+// }
 
 //is there local storage? go see and get if true
-var savedPizzaString = localStorage.getItem('savedPizza');
+// var savedPizzaString = localStorage.getItem('savedPizza');
 
-if(savedPizzaString){
-  var arrayOfNotPizzaObjects = JSON.parse(savedPizzaString);
+// if(savedPizzaString){
+//   var arrayOfNotPizzaObjects = JSON.parse(savedPizzaString);
 
-  for(var i = 0; i < arrayOfNotPizzaObjects.length; i++){
-    new Pizza(arrayOfNotPizzaObjects[i].name, arrayOfNotPizzaObjects[i].imageUrl, arrayOfNotPizzaObjects[i].timesClicked);
-  }
-} else {
-  new Pizza('New York Pizza', 'img/newYorkPizza.jpeg');
-  new Pizza('Detroit Pizza', 'img/detroitPizza.jpeg');
-  new Pizza('Brick Oven Pizza', 'img/brickOvenPizza.jpeg');
-  new Pizza('Calzone', 'img/calzonePizza.jpeg');
-  new Pizza('Chicago Deep Dish', 'img/chicagoPizza.jpeg');
-  new Pizza('Chicago Pizza and Oven Grinder', 'img/cpoGinderPizza.jpeg');
-}
+//   for(var i = 0; i < arrayOfNotPizzaObjects.length; i++){
+//     new Pizza(arrayOfNotPizzaObjects[i].name, arrayOfNotPizzaObjects[i].imageUrl, arrayOfNotPizzaObjects[i].timesClicked);
+//   }
+// } else {
+//   new Pizza('New York Pizza', 'img/newYorkPizza.jpeg');
+//   new Pizza('Detroit Pizza', 'img/detroitPizza.jpeg');
+//   new Pizza('Brick Oven Pizza', 'img/brickOvenPizza.jpeg');
+//   new Pizza('Calzone', 'img/calzonePizza.jpeg');
+//   new Pizza('Chicago Deep Dish', 'img/chicagoPizza.jpeg');
+//   new Pizza('Chicago Pizza and Oven Grinder', 'img/cpoGinderPizza.jpeg');
+// }
 
-allPizzas[0].timesShown = 1;
-allPizzas[1].timesShown = 1;
+// allPizzas[0].timesShown = 1;
+// allPizzas[1].timesShown = 1;
+
 
 function imageWasClicked(event){
   totalClicks++;
@@ -103,7 +104,6 @@ function imageWasClicked(event){
     for (var k = 0; k < imageElements.length; k++){
       imageElements[k].removeEventListener('click', imageWasClicked);
     }
-    renderMyChart();
   }
 
 }
@@ -114,48 +114,48 @@ for(var l = 0; l < imageElements.length; l++){
 }
 
 
-function renderMyChart(){
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: getPizzaArray('name'),
-      datasets: [{
-        label: '# of Votes',
-        data: getPizzaArray('timesClicked'),
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            stepSize: 1,
-            min: 0,
-            max: 10,
-          }
-        }]
-      }
-    }
-  });
-}
+// function renderMyChart(){
+//   var ctx = document.getElementById('myChart').getContext('2d');
+//   var myChart = new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//       labels: getPizzaArray('name'),
+//       datasets: [{
+//         label: '# of Votes',
+//         data: getPizzaArray('timesClicked'),
+//         backgroundColor: [
+//           'rgba(255, 99, 132, 0.2)',
+//           'rgba(54, 162, 235, 0.2)',
+//           'rgba(255, 206, 86, 0.2)',
+//           'rgba(75, 192, 192, 0.2)',
+//           'rgba(153, 102, 255, 0.2)',
+//           'rgba(255, 159, 64, 0.2)'
+//         ],
+//         borderColor: [
+//           'rgba(255, 99, 132, 1)',
+//           'rgba(54, 162, 235, 1)',
+//           'rgba(255, 206, 86, 1)',
+//           'rgba(75, 192, 192, 1)',
+//           'rgba(153, 102, 255, 1)',
+//           'rgba(255, 159, 64, 1)'
+//         ],
+//         borderWidth: 1
+//       }]
+//     },
+//     options: {
+//       scales: {
+//         yAxes: [{
+//           ticks: {
+//             beginAtZero: true,
+//             stepSize: 1,
+//             min: 0,
+//             max: 10,
+//           }
+//         }]
+//       }
+//     }
+//   });
+// }
 
 var nameForm = document.getElementById('nameForm');
 nameForm.addEventListener('submit', function(event){
